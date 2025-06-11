@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: silverscreen   #name of the source you will reference in the models
+    database: silverscreen #name of database
+    schema: public
+    tables:   #name all of the tables you would reference in the models
+      - name: invoices
+      - name: movie_catalogue
+      - name: transactions_l1
+        config:
+          freshness:
+            warn_after:
+              count: 30
+              period: day
+            error_after:
+              count: 700
+              period: day
+          loaded_at_field: timestamp
+      - name: transactions_l2
+      - name: transactions_l3
