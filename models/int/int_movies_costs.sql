@@ -1,4 +1,4 @@
-select month, 
+select month as transaction_month, 
     location_id, 
     m.movie_id,
     movie_title,
