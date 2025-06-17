@@ -1,3 +1,5 @@
+-- model calculating rental costs per movie
+
 select month as transaction_month, 
     location_id, 
     m.movie_id,

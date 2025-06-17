@@ -1,0 +1,11 @@
+snapshots:
+  - name: movies_snapshot
+    relation: source('silverscreen', 'movie_catalogue')
+    config:
+      schema: public
+      database: silverscreen
+      unique_key: movie_id
+      strategy: check
+      check_cols: [movie_id, movie_title, release_date, genre, country, studio, budget]
+      hard_deletes: ignore
+      dbt_valid_to_current: "to_date('9999-12-31')"
