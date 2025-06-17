@@ -4,3 +4,4 @@ select  movie_id,
         total_earned as revenue,
         'NJ_002' as location
 from {{ source("silverscreen", "transactions_l2") }}
+where movie_id is not null

@@ -1,3 +1,5 @@
+-- Selected columns from movie_catalogue table
+
 SELECT 
     movie_id,
     movie_title, 
