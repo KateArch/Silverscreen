@@ -2,10 +2,16 @@ version: 2
 
 sources:
   - name: silverscreen   #name of the source you will reference in the models
+    description: 5 tables showing costs and revenue from 3 silverscreen cinemas.
     database: silverscreen #name of database
     schema: public
     tables:   #name all of the tables you would reference in the models
       - name: invoices
+        description: shows data on invoices, rental costs per month
+        columns:
+          - name: invoice_id
+            description: Invoice that is not unique. The row level is defined through invoice_id and release_date combination. 
+      
       - name: movie_catalogue
       - name: transactions_l1
         config:
@@ -19,3 +25,17 @@ sources:
           loaded_at_field: timestamp
       - name: transactions_l2
       - name: transactions_l3
+
+models:
+  - name: mart_movies
+    description: final movies dataset
+    columns:
+      - name: movie_id
+        tests:
+          - unique:
+              config:
+                limit: 10
+                severity: error
+                error_if: ">10"
+                warn_if: ">0"
+      

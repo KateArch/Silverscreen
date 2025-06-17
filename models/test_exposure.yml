@@ -1,0 +1,27 @@
+version: 2
+
+exposures:
+
+  - name: movies data
+    label: movies p&l
+    type: dashboard
+    maturity: high
+    description: This is a test exposure
+
+    depends_on:
+      - ref("mart_movies")
+
+    owner:
+      name: Katerina Arsh
+      email: katerina.arsh@gmail.com
+  - name: orders_data
+    label: orders_data
+    type: notebook
+    maturity: high
+    url: https://tinyurl.com/jaffle-shop-reporting
+    description: 'Exposure for orders data'
+    depends_on:
+      - ref('int_movies_costs')
+    owner:
+      name: Michael McData
+      email: data@jaffleshop.com
